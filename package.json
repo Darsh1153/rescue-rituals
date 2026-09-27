@@ -1,0 +1,16 @@
+{
+  "name": "rescue-rituals-events",
+  "private": true,
+  "description": "Events Management — NestJS API + React frontend",
+  "scripts": {
+    "db:up": "docker compose up -d",
+    "db:down": "docker compose down",
+    "backend:install": "npm --prefix backend install",
+    "frontend:install": "npm --prefix frontend install",
+    "install:all": "npm run backend:install && npm run frontend:install",
+    "backend:dev": "npm --prefix backend run start:dev",
+    "frontend:dev": "npm --prefix frontend run dev",
+    "backend:seed": "npm --prefix backend run prisma:seed",
+    "backend:migrate": "npm --prefix backend run prisma:migrate"
+  }
+}
