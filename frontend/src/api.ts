@@ -3,6 +3,8 @@
 
 const API_URL = (import.meta.env.VITE_API_URL ?? "").replace(/\/$/, "");
 
+console.log("API_URL =", API_URL);
+
 export type User = {
   id: string;
   email: string;
@@ -59,10 +61,9 @@ async function request<T>(
       ...options,
       headers,
     });
-  } catch {
-    throw new Error(
-      "Cannot reach the API. Is the backend running on http://localhost:3000?",
-    );
+  } catch (err) {
+    console.error("Fetch failed:", err);
+    throw new Error("Cannot reach the API.");
   }
 
   const text = await res.text();
