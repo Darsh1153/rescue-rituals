@@ -7,12 +7,10 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.enableCors({
-    origin: (
-      [
-        "http://localhost:5173",
-        process.env.FRONTEND_URL,
-      ] as (string | undefined)[]
-    ).filter((origin): origin is string => Boolean(origin)),
+    origin: [
+      "http://localhost:5173",
+      "https://rescue-rituals-1.onrender.com",
+    ],
     credentials: true,
     methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
